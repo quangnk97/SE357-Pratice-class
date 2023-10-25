@@ -1,0 +1,70 @@
+## Lab 1.1
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### What criteria should be used in choosing an appropriate requirements engineering tool ?
+- Multiuser support and version control
+- Online collaboration support
+- Customizable user interfaces
+- Built-in support for standards templates (such as IEEE 29148)
+- Verification and validation tools
+- Customizable functionality through a programable interface
+- Support for traceability
+- User-defined glossary support (Heindl et al. 2006)
+- Requirements traceability mechanism
+- Requirements analysis mechanism
+- Security and accessibility mechanism
+- Portability and backend compatibility
+- Configuration management approach
+- Communication and collaboration mechanism
+- Change management support
+- Online publishing support
+- Usability features such as word processor compatibility
+- SRS documentation format
+- These capabilities are organized along 
+the following areas: elicitation, analysis, specification, verification and validation, 
+management, and other capabilities.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### Are there any drawbacks to using certain tools in requirements engineering activities ?
+- The tool market is rapidly changing, and tools are becoming increasingly complex and difficult to use.
+- The complexity of the expensive commercial tools then creates opportunities for inexpensive tools to emerge, but don’t offer sophisticated features.
+- Furthermore, validation functionalities such as consistency, correctness, and completeness are still lacking in most of the tools.
+- Some tools of requirement engineering are unreliable and not feasible for some situations.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### When selecting an open-source tool, what characteristics should you look for ?
+- Budget: You can try to use an open-source tool before trying to buy or build one from scratch
+- Functionality: The tool have to meet all the needs of the organization
+- Security: Your data must be protected while using the tool
+- Compatibility: The tool must be compatible with the existing infrastructure, software, and systems
+- Documentation: If it have a good document on how to use the tool its could save a lot of time
+- Licensing: The tool is released under an open-source license that meets your organization's legal and ethical requirements
+- Lifespan and Sustainability: Assess whether the tool is likely to be sustained and improved in the future. Check for signs of commitment from the development team and the community.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### If an environment does not currently engage in solid requirements engineering practices, should tools be introduced ?
+- Yes. But it should be done it should be done with careful consideration. Firstly, you have to understand what your business's problem and does the tool could help solve that problem. And to have a guildline when using the tool first time, you should follow the best practice.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### How can tools enable distributed, global requirements engineering activities ? What are the drawbacks in this regard ?
+- For example, tools can help with requirements elicitation, analysis, specification, verification, validation, and management. They can also enable collaboration and communication among stakeholders across different locations and time zones. Moreover, tools can support traceability and consistency of requirements throughout the development lifecycle. Additionally, tools can integrate with other tools and systems, such as configuration management, testing, modeling, etc.
+
+- However, using tools for distributed requirements engineering also has some drawbacks. For instance, tools require training and adaptation to the tool’s interface, functionality, and methodology. They also pose potential technical issues, such as network latency, security breaches, data loss, etc. Furthermore, tools may reduce human interaction and social cues, such as body language, tone of voice, etc.
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### What sort of problems might you find through a traceability matrix that you might not see without one ?
+- Missing requirement: A traceability matrix can reveal if there are any gaps or inconsistencies in the requirements specification
+- Redundant requirements: A traceability matrix can also show if there are any duplicate or overlapping requirements that can cause confusion or waste of resources
+- Conflicting requirements: A traceability matrix can also detect if there are any contradictory or incompatible requirements that can lead to errors or failures
+- Outdated requirements: A traceability matrix can also track the changes and updates of the requirements and their related artifacts
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+### How is AI being proposed for knowledge acquisition and representation in requirements specifications ?
+- AI is proposed for knowledge acquisition and representation in requirements specifications through a structured methodology that integrates AI techniques into the traditional systems engineering process. This methodology aims to address the challenges of eliciting, analyzing, and representing knowledge for AI systems during the requirements analysis phase.
+
+- While AI offers promising advancements in knowledge acquisition and representation for requirements specifications, there are also potential drawbacks to consider:
+  + Limited Understanding of Implicit Knowledge: AI techniques may struggle to capture implicit knowledge, such as tacit assumptions, domain expertise, and contextual understanding, which are often crucial for accurate requirements specification
+  + Potential for Bias and Misinterpretation: AI algorithms may introduce biases or misinterpretations if trained on incomplete or biased data sets, leading to inaccurate or misleading requirements
+  + Challenges in Validation and Verification: Validating and verifying the correctness of AI-generated requirements can be challenging, especially for complex systems, potentially leading to undetected errors or inconsistencies
+  + Potential for Ethical Concerns: AI-based requirements engineering raises ethical concerns regarding data privacy, algorithmic bias, and the potential for unintended consequences of AI-driven decisions
+  + Lack of Transparency and Explainability: Complex AI models may lack transparency and explainability, making it difficult to understand the rationale behind their decisions and recommendations, potentially hindering trust and acceptance
+  + Overreliance on Automation: Overreliance on AI-based automation may overlook the importance of human expertise and judgment in interpreting and validating requirements, potentially leading to errors or oversights.
