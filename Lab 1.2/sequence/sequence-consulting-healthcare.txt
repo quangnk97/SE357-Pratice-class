@@ -1,0 +1,17 @@
+@startuml
+
+actor User
+participant System
+participant Database
+
+User -> System: Request Consultation
+System -> System: Handle consultation request
+alt User Error
+  System --> User: Notify error
+else Success
+  System -> Database: Perform consultation
+  Database --> System: Return consultation result
+  System --> User: Display consultation result
+end
+
+@enduml

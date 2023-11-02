@@ -1,0 +1,22 @@
+@startuml
+actor User
+participant System
+participant Database
+
+User -> System: Set Reminder
+System -> System: Handle reminder setting request
+User -> System: Choose reminder type (Health Check-up, Vaccination)
+alt User Error
+  System --> User: Notify error
+else Success
+  System -> System: Handle health check-up or vaccination scheduling
+  User -> System: Choose action (Create, Read, Update, or Delete)
+  alt User Error
+    System --> User: Notify error
+  else Success
+    System -> Database: Perform corresponding action (Create, Read, Update, or Delete)
+    Database --> System: Complete request
+    System --> User: Notify result
+  end
+end
+@enduml

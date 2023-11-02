@@ -1,0 +1,28 @@
+@startuml
+
+|User|
+start
+
+:User initiates a consultation request;
+|System|
+:Retrieve user's consultation request from the database;
+:Display the request details to the user;
+
+|User|
+if (User wants to create a consultation request) then (Create Consultation)
+  :User provides consultation details;
+  |System|
+  :Validate consultation details;
+  |Database|
+  :Create a new consultation request in the database;
+  :Notify the user of successful creation;
+else (Consultation History)
+  |System|
+  :Retrieve the consultation history for the user from the database;
+  :Display the consultation history to the user;
+endif
+
+|User|
+stop
+
+@enduml

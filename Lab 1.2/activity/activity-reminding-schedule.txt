@@ -1,0 +1,42 @@
+@startuml
+
+|User|
+start
+
+:User sets a reminder for a health check-up or vaccination;
+|System|
+:Retrieve user's scheduled reminders from the database;
+:Display the reminders to the user;
+
+|User|
+if (User wants to turn on/off a reminder) then (Reminder Switch)
+  :User configures the reminder settings;
+  |System|
+  :Update the reminder settings in the database;
+  :Notify the user of successful configuration;
+else (Manage Health Check-up / Manage Vaccination)
+  |System|
+  :Retrieve health check-up and vaccination schedules for the user from the database;
+  :Display the schedules to the user;
+  |User|
+  if (User wants to create a new health check-up) then (Manage Health Check-up)
+    :User provides health check-up information;
+    |System|
+    :Validate health check-up information;
+    |Database|
+    :Create a new health check-up record in the database;
+    :Notify the user of successful creation;
+  else (Manage Vaccination)
+    :User provides vaccination information;
+    |System|
+    :Validate vaccination information;
+    |Database|
+    :Create a new vaccination record in the database;
+    :Notify the user of successful creation;
+  endif
+endif
+
+|User|
+stop
+
+@enduml

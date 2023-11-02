@@ -1,0 +1,128 @@
+@startuml
+|User|
+start
+
+:User selects to manage health records;
+|System|
+:Retrieve health records for the user from the database;
+:Display health records to the user;
+|User|
+if (User wants to manage medical history) then (Manage Medical History)
+  |System|
+  :Retrieve medical history data for the user from the database;
+  :Display medical history data to the user;
+  |User|
+  if (User chooses to create medical history) then (Create History)
+    :User provides medical history information;
+    |System|
+    :Validate medical history information;
+    |Database|
+    :Create a new medical history record in the database;
+    :Notify the user of successful creation;
+  else (Read)
+    :User selects a medical history record to view;
+    |System|
+    :Retrieve the selected medical history record from the database;
+    :Display the medical history record to the user;
+  endif
+  if (User selects a medical history record to update) then (Update)
+    :User selects a medical history record to update;
+    |System|
+    :Retrieve the selected medical history record from the database;
+    :Display the medical history record to the user;
+    :User updates medical history information;
+    |System|
+    :Validate updated medical history information;
+    |Database|
+    :Update the medical history record in the database;
+    :Notify the user of successful update;
+  endif
+  if (User selects a medical history record to delete) then (Delete)
+    :User selects a medical history record to delete;
+    |System|
+    :Retrieve the selected medical history record from the database;
+    |Database|
+    :Delete the selected medical history record from the database;
+    :Notify the user of successful deletion;
+  endif
+else if (User wants to manage test results) then (Manage Test Results)
+  |System|
+  :Retrieve test results data for the user from the database;
+  :Display test results data to the user;
+  |User|
+  if (User chooses to create test result) then (Create Result)
+    :User provides test result information;
+    |System|
+    :Validate test result information;
+    |Database|
+    :Create a new test result record in the database;
+    :Notify the user of successful creation;
+  else (Read)
+    :User selects a test result record to view;
+    |System|
+    :Retrieve the selected test result record from the database;
+    :Display the test result record to the user;
+  endif
+  if (User selects a test result record to update) then (Update)
+    :User selects a test result record to update;
+    |System|
+    :Retrieve the selected test result record from the database;
+    :Display the test result record to the user;
+    :User updates test result information;
+    |System|
+    :Validate updated test result information;
+    |Database|
+    :Update the test result record in the database;
+    :Notify the user of successful update;
+  endif
+  if (User selects a test result record to delete) then (Delete)
+    :User selects a test result record to delete;
+    |System|
+    :Retrieve the selected test result record from the database;
+    |Database|
+    :Delete the selected test result record from the database;
+    :Notify the user of successful deletion;
+  endif
+else if (User wants to manage health issues) then (Manage Health Issues)
+  |System|
+  :Retrieve health issues data for the user from the database;
+  :Display health issues data to the user;
+  |User|
+  if (User chooses to create health issue) then (Create Issue)
+    :User provides health issue information;
+    |System|
+    :Validate health issue information;
+    |Database|
+    :Create a new health issue record in the database;
+    :Notify the user of successful creation;
+  else (Read)
+    :User selects a health issue record to view;
+    |System|
+    :Retrieve the selected health issue record from the database;
+    :Display the health issue record to the user;
+  endif
+  if (User selects a health issue record to update) then (Update)
+    :User selects a health issue record to update;
+    |System|
+    :Retrieve the selected health issue record from the database;
+    :Display the health issue record to the user;
+    :User updates health issue information;
+    |System|
+    :Validate updated health issue information;
+    |Database|
+    :Update the health issue record in the database;
+    :Notify the user of successful update;
+  endif
+  if (User selects a health issue record to delete) then (Delete)
+    :User selects a health issue record to delete;
+    |System|
+    :Retrieve the selected health issue record from the database;
+    |Database|
+    :Delete the selected health issue record from the database;
+    :Notify the user of successful deletion;
+  endif
+endif
+
+|User|
+stop
+@enduml

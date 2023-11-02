@@ -1,0 +1,17 @@
+@startuml
+
+actor User
+participant System
+participant Database
+
+User -> System: Connect with Professionals
+System -> System: Handle professional connection request
+alt User Error
+  System --> User: Notify error
+else Success
+  System -> Database: Create professional connection
+  Database --> System: Confirm connection
+  System --> User: Notify connection confirmation
+end
+
+@enduml
