@@ -42,10 +42,10 @@ left to right direction
 (Update Child) <.. (Search Child) : <<extend>>
 (UC4) <.. (Delete Child) : <<extend>>
 
-(UC5) <.. (Read Tracked Child) : <<extend>>
-(Read Tracked Child) <.. (Search Tracked Child) : <<extend>>
-(UC5) <.. (Update Tracked Child) : <<extend>>
-(Update Tracked Child) <.. (Search Tracked Child) : <<extend>>
+(UC5) <.. (Read Tracked Info) : <<extend>>
+(Read Tracked Info) <.. (Search Child for Tracked) : <<extend>>
+(UC5) <.. (Update Tracked Info) : <<extend>>
+(Update Tracked Info) <.. (Search Child for Tracked) : <<extend>>
 
 (UC6) <.. (Medical History) : <<extend>>
 (UC6) <.. (Test Results) : <<extend>>
