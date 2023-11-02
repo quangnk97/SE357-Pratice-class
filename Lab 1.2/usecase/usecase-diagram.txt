@@ -32,6 +32,7 @@ left to right direction
 
 (UC3) <.. (Search Healthcare) : <<extend>>
 (UC3) <.. (Read Healthcare) : <<extend>>
+(Read Healthcare) <.. (Search Healthcare) : <<extend>>
 
 (UC4) <.. (Search Child) : <<extend>>
 (UC4) <.. (Create Child) : <<extend>>
@@ -46,30 +47,43 @@ left to right direction
 (UC5) <.. (Update Tracked Child) : <<extend>>
 (Update Tracked Child) <.. (Search Tracked Child) : <<extend>>
 
-(UC6) <.. (Manage Medical History) : <<extend>>
-(UC6) <.. (Manage Test Results) : <<extend>>
-(UC6) <.. (Manage Health Issues) : <<extend>>
+(UC6) <.. (Medical History) : <<extend>>
+(UC6) <.. (Test Results) : <<extend>>
+(UC6) <.. (Health Issues) : <<extend>>
 
-(Manage Medical History) <.. (Create History) : <<extend>>
-(Manage Medical History) <.. (Read History) : <<extend>>
+(Medical History) <.. (Search History) : <<extend>>
+(Medical History) <.. (Create History) : <<extend>>
+(Medical History) <.. (Read History) : <<extend>>
+(Medical History) <.. (Update History) : <<extend>>
+(Medical History) <.. (Delete History) : <<extend>>
 (Read History) <.. (Search History) : <<extend>>
-(Manage Medical History) <.. (Update History) : <<extend>>
+(Read History) <.. (Search Child for History) : <<extend>>
 (Update History) <.. (Search History) : <<extend>>
-(Manage Medical History) <.. (Delete History) : <<extend>>
+(Update History) <.. (Search Child for History) : <<extend>>
+(Delete History) <.. (Search History) : <<extend>>
 
-(Manage Test Results) <.. (Create Result) : <<extend>>
-(Manage Test Results) <.. (Read Result) : <<extend>>
+(Test Results) <.. (Search Result) : <<extend>>
+(Test Results) <.. (Create Result) : <<extend>>
+(Test Results) <.. (Read Result) : <<extend>>
+(Test Results) <.. (Update Result) : <<extend>>
+(Test Results) <.. (Delete Result) : <<extend>>
 (Read Result) <.. (Search Result) : <<extend>>
-(Manage Test Results) <.. (Update Result) : <<extend>>
+(Read Result) <.. (Search Child for Result) : <<extend>>
 (Update Result) <.. (Search Result) : <<extend>>
-(Manage Test Results) <.. (Delete Result) : <<extend>>
+(Update Result) <.. (Search Child for Result) : <<extend>>
+(Delete Result) <.. (Search Result) : <<extend>>
 
-(Manage Health Issues) <.. (Create Issue) : <<extend>>
-(Manage Health Issues) <.. (Read Issue) : <<extend>>
+(Health Issues) <.. (Search Issue) : <<extend>>
+(Health Issues) <.. (Create Issue) : <<extend>>
+(Health Issues) <.. (Read Issue) : <<extend>>
+(Health Issues) <.. (Update Issue) : <<extend>>
+(Health Issues) <.. (Delete Issue) : <<extend>>
 (Read Issue) <.. (Search Issue) : <<extend>>
-(Manage Health Issues) <.. (Update Issue) : <<extend>>
+(Read Issue) <.. (Search Child for Issue) : <<extend>>
 (Update Issue) <.. (Search Issue) : <<extend>>
-(Manage Health Issues) <.. (Delete Issue) : <<extend>>
+(Update Issue) <.. (Search Child for Issue) : <<extend>>
+(Delete Issue) <.. (Search Issue) : <<extend>>
+
 
 (UC7) <.. (Create Consultation) : <<extend>>
 (UC7) <.. (Consultation History) : <<extend>>
@@ -81,20 +95,30 @@ left to right direction
 (UC9) <.. (Manage Health Check-up) : <<extend>>
 (UC9) <.. (Manage Vaccination) : <<extend>>
 
+(Manage Health Check-up) <.. (Search Check-up) : <<extend>>
 (Manage Health Check-up) <.. (Create Check-up) : <<extend>>
 (Manage Health Check-up) <.. (Read Check-up) : <<extend>>
-(Read Check-up) <.. (Search Check-up) : <<extend>>
 (Manage Health Check-up) <.. (Update Check-up) : <<extend>>
-(Update Check-up) <.. (Search Check-up) : <<extend>>
 (Manage Health Check-up) <.. (Delete Check-up) : <<extend>>
+(Read Check-up) <.. (Search Check-up) : <<extend>>
+(Read Check-up) <.. (Search Child for Check-up) : <<extend>>
+(Update Check-up) <.. (Search Check-up) : <<extend>>
+(Update Check-up) <.. (Search Child for Check-up) : <<extend>>
+(Delete Check-up) <.. (Search Check-up) : <<extend>>
 
+(Manage Vaccination) <.. (Search Vaccination) : <<extend>>
 (Manage Vaccination) <.. (Create Vaccination) : <<extend>>
 (Manage Vaccination) <.. (Read Vaccination) : <<extend>>
-(Read Vaccination) <.. (Search Vaccination) : <<extend>>
 (Manage Vaccination) <.. (Update Vaccination) : <<extend>>
-(Update Vaccination) <.. (Search Vaccination) : <<extend>>
 (Manage Vaccination) <.. (Delete Vaccination) : <<extend>>
+(Read Vaccination) <.. (Search Vaccination) : <<extend>>
+(Read Vaccination) <.. (Search Child for Vaccination) : <<extend>>
+(Update Vaccination) <.. (Search Vaccination) : <<extend>>
+(Update Vaccination) <.. (Search Child for Vaccination) : <<extend>>
+(Delete Vaccination) <.. (Search Vaccination) : <<extend>>
 
 (UC10) <.. (Search Post) : <<extend>>
 (UC10) <.. (Read Post) : <<extend>>
+(Read Post) <.. (Search Post) : <<extend>>
+
 @enduml
