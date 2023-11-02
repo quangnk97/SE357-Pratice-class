@@ -1,0 +1,100 @@
+@startuml
+class User {
+  - id: int
+  - username: string
+  - password: string
+  - email: string
+  - firstName: string
+  - lastName: string
+  - dateOfBirth: Date
+  - gender: string
+  - phoneNumber: string
+  + login(username: string, password: string): boolean
+  + changePassword(newPassword: string): void
+  + updateProfile(email: string, firstName: string, lastName: string, dateOfBirth: Date, gender: string, phoneNumber: string): void
+  + createChild(name: string, age: int): Child
+  + createHealthRecord(history: string, testResults: string, healthIssues: string): HealthRecord
+  + createConsultation(content: string): Consultation
+  + createSchedule(reminderSwitch: boolean): Schedule
+  + viewHealthPosts(): HealthPost[]
+  + updateChildInfo(child: Child, name: string, age: int): void
+}
+
+class Child {
+  - id: int
+  - name: string
+  - age: int
+  + updateChildInfo(name: string, age: int): void
+}
+
+class HealthRecord {
+  - id: int
+  - history: string
+  - testResults: string
+  - healthIssues: string
+  + updateHistory(history: string): void
+  + updateTestResults(testResults: string): void
+  + updateHealthIssues(healthIssues: string): void
+}
+
+class Consultation {
+  - id: int
+  - content: string
+  - date: Date
+  + viewConsultation(): string
+}
+
+class Schedule {
+  - id: int
+  - reminderSwitch: boolean
+  - checkUpList: CheckUp[]
+  - vaccinationList: Vaccination[]
+  + toggleReminderSwitch(): void
+  + addCheckUp(checkUp: CheckUp): void
+  + removeCheckUp(checkUp: CheckUp): void
+  + addVaccination(vaccination: Vaccination): void
+  + removeVaccination(vaccination: Vaccination): void
+}
+
+class HealthPost {
+  - id: int
+  - title: string
+  - content: string
+  - datePosted: Date
+  + viewPost(): string
+}
+
+class CheckUp {
+  - id: int
+  - name: string
+  - date: Date
+  - location: string
+  + viewCheckUp(): string
+}
+
+class Vaccination {
+  - id: int
+  - name: string
+  - date: Date
+  - location: string
+  + viewVaccination(): string
+}
+
+class Professional {
+  - id: int
+  - name: string
+  - email: string
+  - phoneNumber: string
+}
+
+User --|> Child : Manages
+User --|> HealthRecord : Manages
+User --|> Consultation : Creates
+User --|> Schedule : Manages
+User --|> HealthPost : Views
+User --|> Professional : Connects
+
+Child --|> HealthRecord : Has
+Schedule --|> CheckUp : Manages
+Schedule --|> Vaccination : Manages
+@enduml

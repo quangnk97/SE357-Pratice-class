@@ -1,0 +1,23 @@
+@startuml
+actor User
+participant System
+participant Database
+
+User -> System: Manage Children Information
+System -> System: Handle children information management request
+alt User Error
+  System --> User: Notify error
+else Success
+  System -> Database: Query children information
+  Database --> System: Return query results
+  System -> System: Handle create, read, update, or delete children information
+  User -> System: Choose action (Create, Read, Update, or Delete)
+  alt User Error
+    System --> User: Notify error
+  else Success
+    System -> Database: Perform corresponding action (Create, Read, Update, or Delete)
+    Database --> System: Complete request
+    System --> User: Notify result
+  end
+end
+@enduml

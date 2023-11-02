@@ -1,0 +1,16 @@
+@startuml
+actor User
+participant System
+participant Database
+
+User -> System: View Health Posts
+System -> System: Handle post viewing request
+User -> System: Choose post type (Search Post, Read Post)
+alt User Error
+  System --> User: Notify error
+else Success
+  System -> Database: Perform corresponding action (Search Post or Read Post)
+  Database --> System: Return search or post details
+  System --> User: Display search results or post content
+end
+@enduml

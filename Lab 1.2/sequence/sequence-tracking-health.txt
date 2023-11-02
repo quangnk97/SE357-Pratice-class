@@ -1,0 +1,25 @@
+@startuml
+
+actor User
+participant System
+participant Database
+
+User -> System: Track Health
+System -> System: Handle health tracking request
+alt User Error
+  System --> User: Notify error
+else Success
+  System -> Database: Query health information
+  Database --> System: Return query results
+  System -> System: Handle view or update health
+  User -> System: Choose action (View or Update)
+  alt User Error
+    System --> User: Notify error
+  else Success
+    System -> Database: Perform corresponding action (View or Update)
+    Database --> System: Complete request
+    System --> User: Notify result
+  end
+end
+
+@enduml

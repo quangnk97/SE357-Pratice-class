@@ -1,0 +1,26 @@
+@startuml
+|User|
+start
+
+:User initiates a connection request with a healthcare professional;
+|System|
+:Retrieve user's connection request from the database;
+:Display the request details to the user;
+
+|User|
+if (User wants to create a connection request) then (Create Connection)
+  :User provides connection details;
+  |System|
+  :Validate connection details;
+  |Database|
+  :Create a new connection request in the database;
+  :Notify the user of successful creation;
+else (Connection History)
+  |System|
+  :Retrieve the connection history for the user from the database;
+  :Display the connection history to the user;
+endif
+
+|User|
+stop
+@enduml
