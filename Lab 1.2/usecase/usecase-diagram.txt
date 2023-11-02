@@ -41,7 +41,6 @@ left to right direction
 (Update Child) <.. (Search Child) : <<extend>>
 (UC4) <.. (Delete Child) : <<extend>>
 
-(UC5) <.. (Search Tracked Child) : <<extend>>
 (UC5) <.. (Read Tracked Child) : <<extend>>
 (Read Tracked Child) <.. (Search Tracked Child) : <<extend>>
 (UC5) <.. (Update Tracked Child) : <<extend>>
