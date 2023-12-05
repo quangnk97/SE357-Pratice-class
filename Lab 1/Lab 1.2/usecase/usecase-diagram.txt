@@ -83,6 +83,8 @@ left to right direction
 
 (UC7) <.. (Create Consultation) : <<extend>>
 (UC7) <.. (Consultation History) : <<extend>>
+(Consultation History) <.. (View Consultation) : <<extend>>
+(Consultation History) <.. (Search Consultation) : <<extend>>
 
 (UC9) <.. (Reminder Switch) : <<extend>>
 (UC9) <.. (Manage Health Check-up) : <<extend>>
