@@ -1,100 +1,200 @@
 @startuml
 class User {
   - id: int
-  - username: string
-  - password: string
   - email: string
+  - password: string
   - firstName: string
   - lastName: string
   - dateOfBirth: Date
-  - gender: string
+  - gender: bool
   - phoneNumber: string
-  + login(username: string, password: string): boolean
-  + changePassword(newPassword: string): void
-  + updateProfile(email: string, firstName: string, lastName: string, dateOfBirth: Date, gender: string, phoneNumber: string): void
-  + createChild(name: string, age: int): Child
-  + createHealthRecord(history: string, testResults: string, healthIssues: string): HealthRecord
-  + createConsultation(content: string): Consultation
-  + createSchedule(reminderSwitch: boolean): Schedule
-  + viewHealthPosts(): HealthPost[]
-  + updateChildInfo(child: Child, name: string, age: int): void
+  - image: string
+  - isConsultant: bool
+  - remindUser: bool
+  + Login (email: string, password: string): bool
+  + SignUp (user: User): void
+  + ForgetPassword (email: string): string
+  + ChangePassword (newPassword: string): void
+  + UpdateProfile (user: User): void
+  + ToggleReminderSwitch(): void
 }
 
 class Child {
   - id: int
   - name: string
-  - age: int
-  + updateChildInfo(name: string, age: int): void
+  - dateOfBirth: Date
+  - gender: bool
+  - image: string
+  + CreateChild (child: Child): void
+  + ReadChild (id: int): Child
+  + UpdateChild (child: Child): void
+  + DeleteChild (id: int): void
+  + ListChild (): Child[]
+  + SearchChild (name: string): Child[]
 }
 
-class HealthRecord {
+User "1" -- "many" Child: Has 
+
+class HealthKnowledge {
   - id: int
-  - history: string
-  - testResults: string
-  - healthIssues: string
-  + updateHistory(history: string): void
-  + updateTestResults(testResults: string): void
-  + updateHealthIssues(healthIssues: string): void
+  - title: string
+  - category: int
+  - content: string
+  - image: string
+  - video: string
+  - dateCreate: Date
+  - dateUpdate: Date
 }
+
+class HealthCategory {
+  - id: int
+  - name: string
+}
+
+HealthCategory "1" -- "many" HealthKnowledge: Belongs
+
+class HealthMetric {
+  - childId: int
+  - weight: double
+  - height: double
+  - headCir: double
+  - chestCir: double
+  - waistCir: double
+  - bloodPressure: double
+  - heartRate: double
+  - bloodSugar: double
+  - temperature: double
+  + UpdateMetric (metric: HealthMetric): void
+  + SearchChildForMetric (name: string): HealthMetric
+}
+
+Child "1" -- "1" HealthMetric: Has
+
+class MedicalHistory {
+  - id: int
+  - childId: int
+  - examDate: Date
+  - facility: string
+  - doctor: string
+  - diagnosis: string
+  - treatment: string
+  + CreateHistory (history: MedicalHistory): void
+  + ReadHistory (id: int): MedicalHistory
+  + UpdateHistory (history: MedicalHistory): void
+  + DeleteHistory (id: int): void
+  + ListHistory (): MedicalHistory[]
+  + SearchHistory (diagnosis: string): MedicalHistory[]
+  + SearchChildForHistory (nameChild: string): MedicalHistory[]
+}
+
+Child "1" -- "many" MedicalHistory: Has
+
+class TestResult {
+  - id: int
+  - childId: int
+  - testDate: Date
+  - testCategory: string
+  - result: string
+  + CreateResult (result: TestResult): void
+  + ReadResult (id: int): TestResult
+  + UpdateResult (result: TestResult): void
+  + DeleteResult (id: int): void
+  + ListResult (): TestResult[]
+  + SearchResult (testCategory: string): TestResult[]
+  + SearchChildForResult (nameChild: string): TestResult[]
+}
+
+Child "1" -- "many" TestResult: Has
+
+class HealthIssue {
+  - id: int
+  - childId: int
+  - nameIssue: string
+  - severityLevel: string
+  - periodIssue: string
+  - treatment: string
+  + CreateIssue (issue: HealthIssue): void
+  + ReadIssue (id: int): HealthIssue
+  + UpdateIssue (issue: HealthIssue): void
+  + DeleteIssue (id: int): void
+  + ListIssue (): HealthIssue[]
+  + SearchIssue (nameIssue: string): HealthIssue[]
+  + SearchChildForIssue (nameChild: string): HealthIssue[]
+}
+
+Child "1" -- "many" HealthIssue: Has
+
+class Consultant {
+  - specialization: string
+  - periodExperience: string
+  + AgreeConsultation (consultationId: int): void
+  + DenyConsultation (consultationId: int): void
+}
+
+User <|-- Consultant
 
 class Consultation {
   - id: int
-  - content: string
-  - date: Date
-  + viewConsultation(): string
+  - userId: int
+  - consultantId: int
+  - nameChild: string
+  - ageChild: int
+  - genderChild: bool
+  - issue: string
+  - note: string
+  - sentAt: DateTime
+  - isAccepted: string
+  + CreateConsultation (consult: Consultation): void
+  + ListConsultation (): Consultation[]
+  + ViewConsultation (id: int): Consultation
+  + SearchConsultation (nameChild: string): Consultation[]
 }
 
-class Schedule {
-  - id: int
-  - reminderSwitch: boolean
-  - checkUpList: CheckUp[]
-  - vaccinationList: Vaccination[]
-  + toggleReminderSwitch(): void
-  + addCheckUp(checkUp: CheckUp): void
-  + removeCheckUp(checkUp: CheckUp): void
-  + addVaccination(vaccination: Vaccination): void
-  + removeVaccination(vaccination: Vaccination): void
+User "1" -- "many" Consultation: Has
+Consultant "1" -- "many" Consultation: Accepts
+
+class Message {
+ - id: int
+ - consultationId: int
+ - content: string
+ - isConsultant: bool
+ - timeAt: DateTime
 }
 
-class HealthPost {
-  - id: int
-  - title: string
-  - content: string
-  - datePosted: Date
-  + viewPost(): string
-}
+Consultation "1" -- "many" Message: Contains
 
 class CheckUp {
   - id: int
-  - name: string
-  - date: Date
+  - childId: int
+  - examCategory: string
+  - examDate: Date
   - location: string
-  + viewCheckUp(): string
+  + CreateCheckUp (check: CheckUp): void
+  + ReadCheckUp (id: int): CheckUp
+  + UpdateCheckUp (check: CheckUp): void
+  + DeleteCheckUp (id: int): void
+  + ListCheckUp (): CheckUp[]
+  + SearchCheckUp (examCategory: string): CheckUp[]
+  + SearchChildForCheckUp (nameChild: string): CheckUp[]
 }
+
+Child "1" -- "many" CheckUp: Has
 
 class Vaccination {
   - id: int
-  - name: string
-  - date: Date
+  - childId: int
+  - vaccCategory: string
+  - vaccDate: Date
   - location: string
-  + viewVaccination(): string
+  + CreateVaccination (vacc: Vaccination): void
+  + ReadVaccination (id: int): Vaccination
+  + UpdateVaccination (vacc: Vaccination): void
+  + DeleteVaccination (id: int): void
+  + ListVaccination (): Vaccination[]
+  + SearchVaccination (vaccCategory: string): Vaccination[]
+  + SearchChildForVaccination (nameChild: string): Vaccination[]
 }
 
-class Professional {
-  - id: int
-  - name: string
-  - email: string
-  - phoneNumber: string
-}
+Child "1" -- "many" Vaccination: Has
 
-User --|> Child : Manages
-User --|> HealthRecord : Manages
-User --|> Consultation : Creates
-User --|> Schedule : Manages
-User --|> HealthPost : Views
-User --|> Professional : Connects
-
-Child --|> HealthRecord : Has
-Schedule --|> CheckUp : Manages
-Schedule --|> Vaccination : Manages
 @enduml
