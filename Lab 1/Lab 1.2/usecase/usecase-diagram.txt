@@ -1,6 +1,7 @@
 @startuml
 left to right direction
 "User" as u
+
 (Sign In) as (UC1)
 (Sign Up) as (UC2)
 (Searching Health Information) as (UC3)
@@ -120,5 +121,13 @@ left to right direction
 (UC10) <.. (Search Post) : <<extend>>
 (UC10) <.. (Read Post) : <<extend>>
 (Read Post) <.. (Search Post) : <<extend>>
+
+"Consultant" as c
+(Consulting Agreement) as (UC11)
+(Connection Agreement) as (UC12)
+:c: -- (UC11)
+:c: -- (UC12)
+(UC1) <.. (UC11) : <<include>>
+(UC1) <.. (UC12) : <<include>>
 
 @enduml
