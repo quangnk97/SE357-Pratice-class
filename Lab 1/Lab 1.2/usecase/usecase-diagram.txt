@@ -9,9 +9,7 @@ left to right direction
 (Tracking Health) as (UC5)
 (Storing Health Records) as (UC6)
 (Consulting Healthcare) as (UC7)
-(Connecting With Professionals) as (UC8)
 (Reminding Schedule) as (UC9)
-(Viewing Health Posts) as (UC10)
 
 :u: -- (UC1)
 :u: -- (UC2)
@@ -20,15 +18,12 @@ left to right direction
 :u: -- (UC5)
 :u: -- (UC6)
 :u: -- (UC7)
-:u: -- (UC8)
 :u: -- (UC9)
-:u: -- (UC10)
 
 (UC1) <.. (UC4) : <<include>>
 (UC1) <.. (UC5) : <<include>>
 (UC1) <.. (UC6) : <<include>>
 (UC1) <.. (UC7) : <<include>>
-(UC1) <.. (UC8) : <<include>>
 (UC1) <.. (UC9) : <<include>>
 
 (UC3) <.. (Search Healthcare) : <<extend>>
@@ -89,12 +84,10 @@ left to right direction
 (UC7) <.. (Create Consultation) : <<extend>>
 (UC7) <.. (Consultation History) : <<extend>>
 
-(UC8) <.. (Create Connection) : <<extend>>
-(UC8) <.. (Connection History) : <<extend>>
-
 (UC9) <.. (Reminder Switch) : <<extend>>
 (UC9) <.. (Manage Health Check-up) : <<extend>>
 (UC9) <.. (Manage Vaccination) : <<extend>>
+
 
 (Manage Health Check-up) <.. (Search Check-up) : <<extend>>
 (Manage Health Check-up) <.. (Create Check-up) : <<extend>>
@@ -118,16 +111,10 @@ left to right direction
 (Update Vaccination) <.. (Search Child for Vaccination) : <<extend>>
 (Delete Vaccination) <.. (Search Vaccination) : <<extend>>
 
-(UC10) <.. (Search Post) : <<extend>>
-(UC10) <.. (Read Post) : <<extend>>
-(Read Post) <.. (Search Post) : <<extend>>
 
 "Consultant" as c
 (Consulting Agreement) as (UC11)
-(Connection Agreement) as (UC12)
 :c: -- (UC11)
-:c: -- (UC12)
 (UC1) <.. (UC11) : <<include>>
-(UC1) <.. (UC12) : <<include>>
 
 @enduml
