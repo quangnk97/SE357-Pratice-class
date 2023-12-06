@@ -1,0 +1,17 @@
+@startuml
+|User|
+start
+
+repeat
+:Người dùng câp nhật các\ntrường dữ liệu của thông tin\ncá nhân và chọn nút "Lưu";
+|System|
+:Kiểm tra tính hợp lệ của dữ liệu;
+repeat while (Dữ liệu có hợp lệ?) is (Không)
+->Hợp lệ;
+|Database|
+:Cập nhật Profile của người dùng;
+|System|
+:Hiển thị thông báo cập nhật thành công;
+
+stop
+@enduml

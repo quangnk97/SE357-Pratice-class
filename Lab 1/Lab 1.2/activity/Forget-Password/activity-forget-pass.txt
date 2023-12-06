@@ -1,0 +1,18 @@
+@startuml
+|User|
+start
+
+repeat
+:Người dùng nhập email đã\nđăng ký và chọn nút "Gửi";
+|System|
+:Xác thực email đã nhập;
+|Database|
+:Kiểm tra email đã nhập\ncó tồn tại trong database;
+|System|
+repeat while (Email có tồn tại?) is (Không)
+->Tồn tại;
+:Gửi mật khẩu mới qua email đã nhập;
+:Trở về trang đăng nhập;
+
+stop
+@enduml

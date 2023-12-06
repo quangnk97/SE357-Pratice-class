@@ -11,7 +11,7 @@ class User {
   - image: string
   - isConsultant: bool
   - remindUser: bool
-  + Login (email: string, password: string): bool
+  + SignIn (email: string, password: string): bool
   + SignUp (user: User): void
   + ForgetPassword (email: string): string
   + ChangePassword (newPassword: string): void

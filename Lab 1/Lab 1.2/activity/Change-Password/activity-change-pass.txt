@@ -1,0 +1,28 @@
+@startuml
+|User|
+start
+
+repeat
+repeat
+repeat
+:Người dùng nhập mật khẩu\ncũ, mật khẩu mới và lặp lại\nmật khẩu mới;
+|System|
+:Kiểm tra tính đầy đủ của\nthông tin nhập vào;
+repeat while (Có nhập đủ thông tin?) is (Không)
+->Đủ;
+:Kiểm tra tính trùng khớp giữa\nmật khẩu mới và lặp lại mật khẩu mới;
+repeat while (Có khớp nhau?) is (Không)
+->Khớp;
+:Kiểm tra tính xác thực của\nmật khẩu cũ nhập vào;
+|Database|
+:Lấy dữ liệu về mật khẩu cũ của\nngười dùng trong database;
+|System|
+repeat while (So sánh có dữ liệu có khớp\nvới nhau?) is (Không)
+->Khớp;
+|Database|
+:Cập nhật mẩu khẩu mới;
+|System|
+:Hiển thị thông báo thay đổi mật khẩu thành công;
+
+stop
+@enduml

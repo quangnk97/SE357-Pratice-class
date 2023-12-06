@@ -1,0 +1,25 @@
+@startuml
+|User|
+start
+
+repeat
+repeat 
+ :Người dùng nhập thông\ntin đăng ký và chọn nút\n"Đăng ký";
+|System|
+repeat while (Đầy đủ thông tin\nđăng ký?) is (Không)
+->Đầy đủ;
+:Xác thực thông tin\nđăng ký;
+|Database|
+if (Thông tin đăng ký có\nphải là duy nhất?) then (Duy nhất)
+  :Tạo 1 tài khoản mới;
+  :Trả về thông báo thành công;
+else (Không)
+  :Trả về lỗi đăng ký;
+endif
+|System|
+repeat while (Hiển thị lỗi?) is (Lỗi)
+->Thành công;
+:Trở về trang đăng nhập;
+
+stop
+@enduml

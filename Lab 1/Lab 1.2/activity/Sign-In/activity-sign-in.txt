@@ -1,0 +1,20 @@
+@startuml
+|User|
+start
+
+repeat
+repeat
+:Người dùng nhập thông\ntin đăng nhập gồm tên\ntài khoản và mật khẩu và\nchọn nút "Đăng nhập";
+|System|
+repeat while (Đầy đủ cả tên tài\nkhoản và mật khẩu?) is (Không)
+->Đầy đủ;
+:Xác thực thông tin\nđăng nhập;
+|Database|
+:Lấy dữ liệu của người\ndùng trong database;
+|System|
+repeat while (Thông tin đăng nhập\nnhập có hợp lệ?) is (Không hợp lệ)
+->Hợp lệ;
+:Cấp quyên truy cập\nvào hệ thống;
+stop
+
+@enduml
