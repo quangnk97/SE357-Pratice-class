@@ -9,7 +9,9 @@ left to right direction
 (Tracking Health) as (UC5)
 (Storing Health Records) as (UC6)
 (Consulting Healthcare) as (UC7)
+(Forget Password) as (UC8)
 (Reminding Schedule) as (UC9)
+(Managing Profile) as (UC10)
 
 :u: -- (UC1)
 :u: -- (UC2)
@@ -18,13 +20,16 @@ left to right direction
 :u: -- (UC5)
 :u: -- (UC6)
 :u: -- (UC7)
+:u: -- (UC8)
 :u: -- (UC9)
+:u: -- (UC10)
 
 (UC1) <.. (UC4) : <<include>>
 (UC1) <.. (UC5) : <<include>>
 (UC1) <.. (UC6) : <<include>>
 (UC1) <.. (UC7) : <<include>>
 (UC1) <.. (UC9) : <<include>>
+(UC1) <.. (UC10) : <<include>>
 
 (UC3) <.. (Search Healthcare) : <<extend>>
 (UC3) <.. (Read Healthcare) : <<extend>>
@@ -89,6 +94,10 @@ left to right direction
 (UC9) <.. (Reminder Switch) : <<extend>>
 (UC9) <.. (Manage Health Check-up) : <<extend>>
 (UC9) <.. (Manage Vaccination) : <<extend>>
+
+(UC10) <.. (Read Profile) : <<extend>>
+(UC10) <.. (Update Profile) : <<extend>>
+(UC10) <.. (Change Password) : <<extend>>
 
 
 (Manage Health Check-up) <.. (Search Check-up) : <<extend>>
