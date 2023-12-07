@@ -4,7 +4,7 @@ left to right direction
 
 (Sign In) as (UC1)
 (Sign Up) as (UC2)
-(Searching Health Information) as (UC3)
+(Searching Healthcare Information) as (UC3)
 (Managing Children Information) as (UC4)
 (Tracking Health) as (UC5)
 (Storing Health Records) as (UC6)

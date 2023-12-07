@@ -35,7 +35,7 @@ class Child {
 
 User "1" -- "many" Child: Has 
 
-class HealthKnowledge {
+class HealthcareInfo {
   - id: int
   - title: string
   - category: int
@@ -44,14 +44,18 @@ class HealthKnowledge {
   - video: string
   - dateCreate: Date
   - dateUpdate: Date
+  + SearchInfoByKeyword (title: string): HealthcareInfo[]
+  + SearchInfoByCategory (category: int): HealthcareInfo[]
+  + ReadInfo (id: int): HealthcareInfo
 }
 
 class HealthCategory {
   - id: int
   - name: string
+  + ListCategory (): HealthCategory[]
 }
 
-HealthCategory "1" -- "many" HealthKnowledge: Belongs
+HealthCategory "1" -- "many" HealthcareInfo: Belongs
 
 class HealthMetric {
   - childId: int

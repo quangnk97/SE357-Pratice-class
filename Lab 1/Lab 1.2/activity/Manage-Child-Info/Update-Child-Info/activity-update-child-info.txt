@@ -1,0 +1,29 @@
+@startuml
+|User|
+start
+
+repeat
+repeat
+repeat 
+:Người dùng cập nhật các trường\nthông tin của trẻ và chọn nút "Lưu";
+|System|
+repeat while (Đầy đủ thông tin\ncần thiết?) is (Không)
+->Đầy đủ;
+repeat while (Kiểm tra lỗi dữ liệu?) is (Có lỗi)
+->Không lỗi;
+
+|Database|
+if (Kiểm tra sự ràng buộc\ndữ liệu?) then (Có lỗi)
+:Trả về lỗi khi cập nhật\nthông tin;
+
+else (Không lỗi)
+:Cập nhật thông tin\ncơ bản của trẻ;
+:Trả về thông báo\nthành công;
+endif
+|System|
+repeat while (Hiển thị lỗi?) is (Lỗi)
+->Thành công;
+:Cập nhật những thay đổi\ntrên trang giao diện hiện\ntại;
+
+stop
+@enduml

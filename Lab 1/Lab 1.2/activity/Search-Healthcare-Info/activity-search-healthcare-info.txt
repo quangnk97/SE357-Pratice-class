@@ -1,0 +1,56 @@
+@startuml
+|User|
+start
+
+:Người dùng chọn 1 trong\n2 options;
+if (Từ khóa tìm kiếm hoặc chủ đề\ntìm kiếm?) then (Từ khóa\ntìm kiếm)
+:Người dùng nhập từ khóa\ntìm kiếm và chọn "Search";
+|System|
+:Hệ thống thực hiện chức\nnăng tìm kiếm các bài đăng\nchăm sóc sức khỏe theo từ khóa;
+|Database|
+:Trả về danh sách các bài\nđăng có tiêu đề chứa từ\nkhóa;
+
+|System|
+if (Kết quả danh sách rỗng?) then (rỗng)
+:Hiển thị dòng chữ "Không\ntìm thấy bài đăng";
+else (Không rỗng)
+:Hiển thị danh sách bài\nđăng;
+|User|
+:Người dùng chọn 1 trong\nsố các bài đăng;
+|System|
+:Thực hiện lấy thông tin\ncủa bài đăng đó;
+|Database|
+:Lấy dữ liệu của bài\nđăng;
+|System|
+:Hiển thị chi tiết bài\nđăng;
+
+endif
+
+else (Chủ đề\ntìm kiếm)
+|User|
+:Người dùng chọn 1 trong\nnhững chủ đề;
+|System|
+:Hệ thống thực hiện chức\nnăng tìm kiếm các bài đăng\nchăm sóc sức khỏe theo chủ đề;
+|Database|
+:Trả về danh sách các bài\nđăng theo chủ đề;
+
+|System|
+if (Kết quả danh sách rỗng?) then (rỗng)
+:Hiển thị dòng chữ "Không\ntìm thấy bài đăng";
+else (Không rỗng)
+:Hiển thị danh sách bài\nđăng;
+|User|
+:Người dùng chọn 1 trong\nsố các bài đăng;
+|System|
+:Thực hiện lấy thông tin\ncủa bài đăng đó;
+|Database|
+:Lấy dữ liệu của bài\nđăng;
+|System|
+:Hiển thị chi tiết bài\nđăng;
+
+endif
+
+endif
+|User|
+stop
+@enduml
