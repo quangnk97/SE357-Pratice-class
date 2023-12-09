@@ -1,0 +1,27 @@
+@startuml
+|User|
+start
+
+:Người dùng nhập tên loại vắc\nxin và chọn "Search";
+|System|
+:Hệ thống thực hiện chức năng\ntìm kiếm lịch tiêm chủng\ntương ứng loại vắc xin đó;
+|Database|
+:Trả về danh sách lịch tiêm\nchủng của trẻ tìm được;
+
+|System|
+if (Kết quả danh sách rỗng?) then (rỗng)
+:Hiển thị dòng chữ "Không\ntìm thấy lịch tiêm tương ứng";
+else (Không rỗng)
+:Hiển thị danh sách lịch\ntiêm chủng;
+|User|
+:Người dùng chọn 1 trong\ndanh sách;
+|System|
+:Thực hiện lấy thông tin\nlịch tiêm chủng đã chọn;
+|Database|
+:Lấy dữ liệu tương ứng;
+|System|
+:Hiển thị chi tiết thông tin\nlịch tiêm chủng;
+
+endif
+stop
+@enduml

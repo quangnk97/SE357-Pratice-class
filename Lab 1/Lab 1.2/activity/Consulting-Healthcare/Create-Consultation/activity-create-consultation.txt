@@ -1,0 +1,23 @@
+@startuml
+|User|
+start
+
+repeat
+repeat 
+:Người dùng nhập thông tin về vấn\nđề sức khỏe cần tư vấn và chọn\nnút "Tạo";
+|System|
+repeat while (Đầy đủ thông tin\ncần thiết?) is (Không)
+->Đầy đủ;
+repeat while (Kiểm tra lỗi dữ liệu?) is (Có lỗi)
+->Không lỗi;
+:Hiển thị danh sách chuyên\ngia y tế tư vấn;
+
+|User|
+:Chọn chuyên gia;
+:Chọn "Gửi yêu cầu";
+
+|System|
+:Hệ thống gửi yêu cầu cùng nội\ndung vấn đề đến chuyên gia;
+
+stop
+@enduml

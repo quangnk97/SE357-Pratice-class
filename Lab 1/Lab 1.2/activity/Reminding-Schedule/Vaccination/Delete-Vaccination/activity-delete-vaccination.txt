@@ -1,0 +1,25 @@
+@startuml
+|User|
+start
+
+:Người dùng chọn 1 trong\ndanh sách lịch tiêm\nchủng và chọn nút "Xóa";
+|System|
+:Hệ thống hiển thị form để\nxác nhận có chắc chắn\nmuốn xóa?;
+|User|
+if (Người dùng chọn "Chắc chắn"hoặc "Hủy") then ("Chắn chắn")
+|System|
+:Thực hiện chức năng xóa\nlịch tiêm chủng đó;
+|Database|
+:Xóa lịch tiêm chủng trong\ndatabase;
+:Trả về thông báo xóa\nthành công;
+|System|
+:Hiển thị thông báo xóa\nthành công;
+
+else ("Hủy")
+|System|
+:Hệ thống đóng form và\ntrở về trang danh sách;
+
+endif
+|User|
+stop
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+|User|
+start
+
+:Người dùng nhập tên trẻ trong lần\ntư vấn và chọn "Search";
+|System|
+:Hệ thống thực hiện chức năng\ntìm kiếm các cuộc tư vấn có\ntên trẻ;
+|Database|
+:Trả về danh sách các cuộc\ntư vấn tìm được;
+
+|System|
+if (Kết quả danh sách rỗng?) then (rỗng)
+:Hiển thị dòng chữ "Không\ntìm thấy lần tư vấn tương\nứng";
+else (Không rỗng)
+:Hiển thị danh sách các\nlần tư vấn;
+|User|
+:Người dùng chọn 1 trong\ndanh sách;
+|System|
+:Thực hiện lấy thông tin\ncủa lần tư vấn đã chọn;
+|Database|
+:Lấy dữ liệu tương ứng;
+|System|
+:Hiển thị lịch sử cuộc tư vấn,\ntrò chuyện giữa chuyên gia\nvà người dùng;
+
+endif
+stop
+@enduml
