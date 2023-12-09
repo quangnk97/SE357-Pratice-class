@@ -1,0 +1,29 @@
+@startuml
+|User|
+start
+
+repeat
+repeat
+repeat 
+:Người dùng nhập thông tin về kết\nquả xét nghiệm và chọn nút "Tạo";
+|System|
+repeat while (Đầy đủ thông tin\ncần thiết?) is (Không)
+->Đầy đủ;
+repeat while (Kiểm tra lỗi dữ liệu?) is (Có lỗi)
+->Không lỗi;
+
+|Database|
+if (Kiểm tra sự ràng buộc\ndữ liệu?) then (Có lỗi)
+:Trả về lỗi khi điền thông tin;
+
+else (Không lỗi)
+:Tạo mới kết quả xét\nnghiệm của trẻ;
+:Trả về thông báo\nthành công;
+endif
+|System|
+repeat while (Hiển thị lỗi?) is (Lỗi)
+->Thành công;
+:Trở về trang hiển thị\ndanh sách kết quả xét\nnghiệm;
+
+stop
+@enduml

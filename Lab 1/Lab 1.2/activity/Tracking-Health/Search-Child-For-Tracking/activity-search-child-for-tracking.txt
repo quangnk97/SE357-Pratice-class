@@ -1,0 +1,27 @@
+@startuml
+|User|
+start
+
+:Người dùng nhập tên trẻ muốn\ntheo dõi và chọn "Search";
+|System|
+:Hệ thống thực hiện chức\nnăng tìm kiếm trẻ có tên\nchứa từ khóa;
+|Database|
+:Trả về danh sách thông tin\ncơ bản của trẻ tìm được;
+
+|System|
+if (Kết quả danh sách rỗng?) then (rỗng)
+:Hiển thị dòng chữ "Không\ntìm thấy trẻ tương ứng";
+else (Không rỗng)
+:Hiển thị danh sách trẻ kèm\ntheo những thông tin cơ bản;
+|User|
+:Người dùng chọn 1 trong\ndanh sách;
+|System|
+:Thực hiện lấy các chỉ số\nsức khỏe của trẻ đã chọn;
+|Database|
+:Lấy dữ liệu tương ứng;
+|System|
+:Hiển thị chi tiết các chỉ\nsố sức khỏe của trẻ;
+
+endif
+stop
+@enduml

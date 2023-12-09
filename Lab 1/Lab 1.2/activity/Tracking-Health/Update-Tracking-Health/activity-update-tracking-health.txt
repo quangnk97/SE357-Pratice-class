@@ -1,0 +1,26 @@
+@startuml
+|User|
+start
+
+repeat
+repeat 
+:Người dùng cập nhật các chỉ\nsố sức khỏe của trẻ như cân\nnặng, chiều cao,... và chọn\nnút "Lưu";
+|System|
+repeat while (Kiểm tra lỗi dữ liệu?) is (Có lỗi)
+->Không lỗi;
+
+|Database|
+if (Kiểm tra sự ràng buộc\ndữ liệu?) then (Có lỗi)
+:Trả về lỗi khi cập nhật\nthông tin;
+
+else (Không lỗi)
+:Cập nhật chỉ số sức khỏe của trẻ;
+:Trả về thông báo\nthành công;
+endif
+|System|
+repeat while (Hiển thị lỗi?) is (Lỗi)
+->Thành công;
+:Cập nhật những thay đổi\ntrên trang giao diện hiện\ntại;
+
+stop
+@enduml

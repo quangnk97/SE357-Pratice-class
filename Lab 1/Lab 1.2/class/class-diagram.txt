@@ -69,7 +69,7 @@ class HealthMetric {
   - bloodSugar: double
   - temperature: double
   + UpdateMetric (metric: HealthMetric): void
-  + SearchChildForMetric (name: string): HealthMetric
+  + SearchChildForMetric (name: string): HealthMetric[]
 }
 
 Child "1" -- "1" HealthMetric: Has

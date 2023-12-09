@@ -1,0 +1,27 @@
+@startuml
+|User|
+start
+
+:Người dùng nhập tên vấn đề sức\nkhỏe và chọn "Search";
+|System|
+:Hệ thống thực hiện chức năng\ntìm kiếm vấn đề sức khỏe\ncó tên vấn đề đó;
+|Database|
+:Trả về danh sách vấn đề\nsức khỏe của trẻ tìm được;
+
+|System|
+if (Kết quả danh sách rỗng?) then (rỗng)
+:Hiển thị dòng chữ "Không\ntìm thấy vấn đề tương ứng";
+else (Không rỗng)
+:Hiển thị danh sách vấn\n đề sức khỏe;
+|User|
+:Người dùng chọn 1 trong\ndanh sách;
+|System|
+:Thực hiện lấy thông tin\nvấn đề sức khỏe đã chọn;
+|Database|
+:Lấy dữ liệu tương ứng;
+|System|
+:Hiển thị chi tiết thông tin\nvấn đề sức khỏe;
+
+endif
+stop
+@enduml
