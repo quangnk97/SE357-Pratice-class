@@ -1,0 +1,22 @@
+﻿@startuml
+actor User
+participant "System" as System
+
+User -> System: Người dùng nhập thông tin và chọn "Tạo"
+System --> System: Đầy đủ thông tin cần thiết?
+alt Không
+    System --> User: Hiển thị thông báo lỗi "Nhập đầy đủ thông tin"
+else Đầy đủ
+    loop Kiểm tra lỗi dữ liệu
+        System --> System: Kiểm tra lỗi dữ liệu
+        alt Có lỗi
+            System --> User: Hiển thị thông báo lỗi "Nội dung không hợp lệ"
+        else Không lỗi
+            System --> User: Hiển thị danh sách chuyên gia y tế tư vấn
+            User -> System: Chọn chuyên gia
+            User -> System: Chọn "Gửi yêu cầu"
+            System --> User: Hiển thị thông báo "Yêu cầu đã được gửi đến chuyên gia"
+        end
+    end
+end
+@enduml

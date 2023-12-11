@@ -1,0 +1,16 @@
+﻿@startuml
+actor User
+participant "System" as System
+database Database
+
+User -> System: Chọn kết quả xét nghiệm và nhấn "Xóa"
+System --> System: Hiển thị biểu mẫu xác nhận xóa
+
+alt User chọn "Chắc chắn"
+    System -> Database: Xóa kết quả xét nghiệm sức khỏe
+    Database --> System: Trả về thông báo xóa thành công
+    System --> User: Hiển thị thông báo xóa thành công
+else User chọn "Hủy"
+    System --> System: Đóng biểu mẫu và trở về trang danh sách
+end
+@enduml

@@ -1,0 +1,28 @@
+﻿@startuml
+actor User
+participant "System" as System
+database Database
+
+loop Đến khi người dùng hoàn thành
+    User -> System: Nhập mật khẩu cũ, mật khẩu mới và lặp lại mật khẩu mới
+
+    System --> System: Kiểm tra tính đầy đủ của thông tin nhập vào
+    alt Không
+        System --> User: Hiển thị thông báo lỗi "Nhập đầy đủ thông tin"
+    else Đủ
+        System --> System: Kiểm tra trùng khớp giữa mật khẩu mới và lặp lại mật khẩu mới
+        alt Không
+            System --> User: Hiển thị thông báo lỗi "Mật khẩu mới không khớp"
+        else Khớp
+            System --> System: Kiểm tra xác thực của mật khẩu cũ
+            System -> Database: Lấy dữ liệu về mật khẩu cũ của người dùng trong database
+            alt Không khớp
+                System --> User: Hiển thị thông báo lỗi "Mật khẩu cũ không đúng"
+            else Khớp
+                System -> Database: Cập nhật mật khẩu mới
+                System --> User: Hiển thị thông báo thay đổi mật khẩu thành công
+                end
+            end
+        end
+    end
+@enduml

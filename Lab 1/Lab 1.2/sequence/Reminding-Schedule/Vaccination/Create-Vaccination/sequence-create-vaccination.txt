@@ -1,0 +1,33 @@
+﻿@startuml
+actor User
+participant "System" as System
+database Database
+
+User -> System: Bắt đầu quá trình tạo mới lịch tiêm chủng
+
+
+loop Đến khi không còn lỗi hoặc người dùng dừng thao tác
+    System --> System: Kiểm tra đầy đủ thông tin
+    alt Không đầy đủ
+       System --> User: Hiển thị thông báo lỗi 
+end
+end
+
+loop Đến khi không còn lỗi hoặc người dùng dừng thao tác
+    System --> System: Kiểm tra ràng buộc dữ liệu
+
+alt (Có lỗi ràng buộc dữ liệu?)
+    System --> User: Hiển thị thông báo lỗi "Lỗi ràng buộc"
+else (Không có lỗi ràng buộc)
+    System -> Database: Tạo mới lịch tiêm chủng của trẻ
+    alt (Có lỗi khi tạo mới)
+        Database --> System: Trả về lỗi khi tạo mới lịch tiêm chủng
+    else (Không lỗi khi tạo mới)
+        Database --> System: Trả về thông báo thành công
+    end
+end
+end
+    System --> User: Thông báo thành công
+
+System --> System: Trở về trang hiển thị danh sách lịch tiêm chủng
+@enduml

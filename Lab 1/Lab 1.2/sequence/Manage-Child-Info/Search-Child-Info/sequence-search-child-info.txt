@@ -1,0 +1,27 @@
+﻿@startuml
+actor User
+participant "System" as System
+database Database
+
+User -> System: Nhập tên trẻ muốn\ntìm kiếm và chọn "Search"
+activate System
+System -> System: Thực hiện chức năng tìm kiếm\ntrẻ có tên chứa từ khóa
+activate Database
+Database --> System: Trả về danh sách thông tin\ncơ bản của trẻ tìm được
+deactivate Database
+
+activate System
+alt (Kết quả danh sách rỗng?)
+    System --> User: Hiển thị dòng chữ "Không\n tìm thấy trẻ tương ứng"
+else (Không rỗng)
+    System --> User: Hiển thị danh sách trẻ kèm\ntheo những thông tin cơ bản
+    User -> System: Chọn 1 trong danh sách
+    System -> Database: Thực hiện lấy thông tin\ncủa trẻ đã chọn
+    activate Database
+    Database --> System: Lấy dữ liệu tương ứng
+    System --> User: Hiển thị chi tiết thông tin\n cơ bản của trẻ
+    deactivate Database
+end
+
+deactivate System
+@enduml

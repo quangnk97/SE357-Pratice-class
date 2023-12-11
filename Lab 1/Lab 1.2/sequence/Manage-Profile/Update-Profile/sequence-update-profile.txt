@@ -1,0 +1,16 @@
+﻿@startuml
+actor User
+participant "System" as System
+database Database
+loop Đến khi nào dữ liệu hợp lệ hoặc người dùng không cập nhật nữa
+User -> System: Cập nhật các trường dữ liệu của thông tin cá nhân và chọn "Lưu"
+
+System --> System: Kiểm tra tính hợp lệ của dữ liệu
+alt Không hợp lệ
+    System --> User: Hiển thị thông báo lỗi "Dữ liệu không hợp lệ"
+else Hợp lệ
+    System -> Database: Cập nhật Profile của người dùng
+    System --> User: Hiển thị thông báo cập nhật thành công
+end
+end
+@enduml

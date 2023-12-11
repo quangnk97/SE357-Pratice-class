@@ -1,0 +1,28 @@
+﻿@startuml
+actor User
+participant "System" as System
+database Database
+
+loop Đến khi hết lỗi hoặc người dùng dừng thao tác
+User -> System: Người dùng nhập thông tin đăng ký và chọn "Đăng ký"
+
+System --> System: Đầy đủ thông tin đăng ký?
+alt Không đầy đủ
+    System --> User: Hiển thị thông báo "Nhập đầy đủ thông tin đăng ký"
+else Đầy đủ
+
+System -> System: Xác thực thông tin đăng ký
+
+alt Duy nhất
+    System -> Database: Tạo tài khoản mới
+    Database --> System: Trả về thông báo thành công
+else Trùng lặp
+    Database --> System: Trả về lỗi đăng ký
+end
+
+System --> User: Thông báo thành công "Đăng ký thành công"
+end
+end
+
+System --> User: Trở về trang đăng nhập
+@enduml

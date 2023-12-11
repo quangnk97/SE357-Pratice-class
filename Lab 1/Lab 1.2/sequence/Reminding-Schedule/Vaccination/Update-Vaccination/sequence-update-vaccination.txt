@@ -1,0 +1,22 @@
+﻿@startuml
+actor User
+participant "System" as System
+database Database
+
+loop Đến khi hết lỗi hoặc người dùng dừng thao tác
+    User -> System: Người dùng cập nhật thông tin và chọn "Lưu"
+    System --> System: Kiểm tra lỗi dữ liệu?
+    System --> User: Hiển thị thông báo lỗi "Kiểm tra lại thông tin"
+    
+alt Không có lỗi
+    System -> Database: Cập nhật thông tin lịch tiêm chủng
+    alt Kiểm tra sự ràng buộc dữ liệu?
+        Database --> System: Trả về lỗi khi cập nhật thông tin "Lỗi ràng buộc dữ liệu"
+    else Không có lỗi ràng buộc
+        Database --> System: Trả về thông báo thành công "Cập nhật thành công"
+    end
+end
+System --> User: Thông báo thành công "Cập nhật thành công"
+System --> System: Cập nhật những thay đổi trên trang giao diện hiện tại
+end
+@enduml

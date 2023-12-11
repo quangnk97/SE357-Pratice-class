@@ -1,0 +1,34 @@
+﻿@startuml
+actor User
+participant System
+database Database
+
+User -> System: Chọn 1 trong 2 options
+alt Từ khóa tìm kiếm
+    User -> System: Nhập từ khóa tìm kiếm và chọn "Search"
+    System -> Database: Tìm kiếm bài đăng theo từ khóa
+    Database --> System: Trả về danh sách bài đăng
+    alt Kết quả danh sách rỗng?
+        System -> User: Hiển thị dòng chữ "Không tìm thấy bài đăng"
+    else Không rỗng
+        System -> User: Hiển thị danh sách bài đăng
+        User -> System: Chọn 1 trong số các bài đăng
+        System -> Database: Lấy thông tin của bài đăng
+        Database --> System: Trả về dữ liệu của bài đăng
+        System -> User: Hiển thị chi tiết bài đăng
+    end
+else Chủ đề tìm kiếm
+    User -> System: Chọn 1 trong những chủ đề
+    System -> Database: Tìm kiếm bài đăng theo chủ đề
+    Database --> System: Trả về danh sách bài đăng
+    alt Kết quả danh sách rỗng?
+        System -> User: Hiển thị dòng chữ "Không tìm thấy bài đăng"
+    else Không rỗng
+        System -> User: Hiển thị danh sách bài đăng
+        User -> System: Chọn 1 trong số các bài đăng
+        System -> Database: Lấy thông tin của bài đăng
+        Database --> System: Trả về dữ liệu của bài đăng
+        System -> User: Hiển thị chi tiết bài đăng
+    end
+end
+@enduml

@@ -1,0 +1,25 @@
+﻿@startuml
+actor User
+participant "System" as System
+database Database
+
+loop Đến khi hết lỗi hoặc người dùng dừng thao tác
+User -> System: Nhập thông tin đăng nhập và chọn "Đăng nhập"
+
+System --> System: Xác thực đầy đủ cả tên tài khoản và mật khẩu?
+alt Không đầy đủ
+System --> User: Hiển thị thông báo "Nhập đầy đủ tên tài khoản và mật khẩu"
+else Đầy đủ
+System -> System: Xác thực thông tin đăng nhập
+Database --> System: Lấy dữ liệu của người dùng trong database
+
+end
+alt Không hợp lệ
+    System --> User: Hiển thị thông báo "Thông tin đăng nhập không hợp lệ"
+else Hợp lệ
+
+System -> System: Cấp quyền truy cập vào hệ thống
+System --> User: Đăng nhập thành công
+end
+end
+@enduml

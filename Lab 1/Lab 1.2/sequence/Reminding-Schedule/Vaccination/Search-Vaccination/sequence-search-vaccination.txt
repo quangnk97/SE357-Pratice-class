@@ -1,0 +1,21 @@
+﻿@startuml
+actor User
+participant "System" as System
+database Database
+
+User -> System: Nhập tên loại vắc xin và chọn "Search"
+
+System -> Database: Tìm kiếm lịch tiêm chủng tương ứng loại vắc xin
+
+Database --> System: Trả về danh sách lịch tiêm chủng của trẻ
+
+alt Rỗng
+    System --> User: Hiển thị "Không tìm thấy lịch tiêm tương ứng";
+else Không rỗng
+    System --> User: Hiển thị danh sách lịch tiêm chủng;
+    User -> System: Chọn lịch tiêm chủng từ danh sách
+    System -> Database: Lấy thông tin lịch tiêm chủng đã chọn
+    Database --> System: Lấy dữ liệu tương ứng
+    System --> User: Hiển thị chi tiết thông tin lịch tiêm chủng đã chọn
+end
+@enduml

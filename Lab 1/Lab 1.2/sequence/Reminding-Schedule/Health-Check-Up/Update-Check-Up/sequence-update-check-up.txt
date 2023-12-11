@@ -1,0 +1,25 @@
+﻿@startuml
+actor User
+participant "System" as System
+database Database
+
+User -> System: Bắt đầu quá trình cập nhật
+
+System --> System: Kiểm tra lỗi dữ liệu
+
+loop Khi có lỗi dữ liệu
+    System --> User: Hiển thị thông báo lỗi "Lỗi dữ liệu"
+
+System -> Database: Cập nhật thông tin lịch khám sức khỏe
+
+alt (Có lỗi ràng buộc dữ liệu?)
+    Database --> System: Trả về lỗi khi cập nhật thông tin
+else (Không có lỗi ràng buộc)
+    Database --> System: Trả về thông báo thành công
+end
+
+end
+    System --> User: Thông báo thành công
+
+System --> System: Cập nhật những thay đổi trên trang giao diện hiện tại
+@enduml

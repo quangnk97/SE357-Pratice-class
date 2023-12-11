@@ -1,0 +1,34 @@
+﻿@startuml
+actor User
+participant "System" as System
+database Database
+
+User -> System: Nhập các trường\nthông tin của trẻ và chọn\nnút "Tạo"
+activate System
+System -> System: Kiểm tra đầy đủ thông tin cần thiết?
+activate System
+alt Không
+    System -> User: Hiển thị thông báo lỗi\n("Nhập đầy đủ thông tin cần thiết")
+else Đầy đủ
+    deactivate System
+    System -> System: Kiểm tra lỗi dữ liệu?
+    activate System
+    alt Có lỗi
+        System -> User: Hiển thị thông báo lỗi\n("Dữ liệu không hợp lệ")
+    else Không lỗi
+        deactivate System
+        System -> Database: Kiểm tra sự ràng buộc\ndữ liệu?
+        activate Database
+        alt Có lỗi
+            Database --> System: Trả về lỗi khi điền\nthông tin
+            System -> User: Hiển thị thông báo lỗi\n("Ràng buộc dữ liệu không đáp ứng")
+        else Không lỗi
+            Database -> System: Tạo mới thông tin\ncơ bản của trẻ
+            Database --> System: Trả về thông báo thành công
+            System -> User: Hiển thị thông báo\n("Tạo trẻ thành công")
+        end
+    end
+end
+deactivate System
+deactivate Database
+@enduml

@@ -1,0 +1,21 @@
+﻿@startuml
+actor User
+participant "System" as System
+database Database
+
+User -> System: Nhập tên trẻ và chọn "Search"
+
+System -> Database: Tìm kiếm trẻ có tên chứa từ khóa
+
+Database --> System: Trả về danh sách thông tin cơ bản của trẻ
+
+alt Rỗng
+    System --> User :Hiển thị "Không tìm thấy trẻ tương ứng";
+else Không rỗng
+    System --> User :Hiển thị danh sách trẻ và thông tin cơ bản;
+    User -> System: Chọn trẻ từ danh sách
+    System -> Database: Lấy danh sách lịch tiêm chủng của trẻ đã chọn
+    Database --> System: Lấy dữ liệu tương ứng
+    System --> User: Hiển thị danh sách lịch tiêm chủng của trẻ đã chọn
+end
+@enduml

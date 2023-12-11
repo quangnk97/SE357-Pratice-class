@@ -1,0 +1,17 @@
+﻿@startuml
+actor User
+participant "System" as System
+database Database
+
+User -> System: Chọn lịch tiêm chủng và nút "Xóa"
+
+System --> System: Hiển thị form xác nhận xóa
+
+alt Chắc chắn
+    System -> Database: Xóa lịch tiêm chủng
+    Database --> System: Trả về thông báo xóa thành công
+    System --> User: Hiển thị thông báo xóa thành công
+else Hủy
+    System --> System: Đóng form và trở về trang danh sách
+end
+@enduml

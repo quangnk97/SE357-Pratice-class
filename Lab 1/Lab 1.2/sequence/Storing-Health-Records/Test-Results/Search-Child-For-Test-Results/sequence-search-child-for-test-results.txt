@@ -1,0 +1,19 @@
+﻿@startuml
+actor User
+participant "System" as System
+database Database
+
+User -> System: Người dùng nhập tên trẻ và chọn "Search"
+System -> Database: Thực hiện tìm kiếm trẻ có tên chứa từ khóa
+Database --> System: Trả về danh sách thông tin cơ bản của trẻ tìm được
+
+alt Rỗng
+    System --> User: Hiển thị dòng chữ "Không tìm thấy trẻ tương ứng"
+else Không rỗng
+    System --> User: Hiển thị danh sách trẻ kèm theo những thông tin cơ bản
+    User -> System: Người dùng chọn trẻ từ danh sách
+    System -> Database: Thực hiện lấy danh sách kết quả xét nghiệm của trẻ đã chọn
+    Database --> System: Lấy dữ liệu tương ứng
+    System --> User: Hiển thị danh sách kết quả xét nghiệm sức khỏe của trẻ
+end
+@enduml

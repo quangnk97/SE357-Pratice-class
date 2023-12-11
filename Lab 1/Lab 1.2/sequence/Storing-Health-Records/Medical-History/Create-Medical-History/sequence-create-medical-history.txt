@@ -1,0 +1,29 @@
+﻿@startuml
+actor User
+participant "System" as System
+database Database
+loop Đến khi nào không còn lỗi hoặc người dùng dừng thao tác
+User -> System: Nhập thông tin lịch sử khám bệnh và chọn "Tạo"
+
+System --> System: Kiểm tra đầy đủ thông tin cần thiết
+alt Không đầy đủ
+    System --> User: Hiển thị thông báo lỗi "Nhập đầy đủ thông tin"
+else Đầy đủ
+    loop Kiểm tra lỗi dữ liệu
+        System --> System: Kiểm tra lỗi dữ liệu
+        alt Có lỗi
+            System --> User: Hiển thị thông báo lỗi "Nội dung không hợp lệ"
+        else Không lỗi
+            alt Kiểm tra sự ràng buộc dữ liệu
+                Database --> System: Trả về lỗi khi điền thông tin
+            else Không lỗi ràng buộc
+                Database --> System: Tạo mới lịch sử khám bệnh của trẻ
+                System --> User: Trả về thông báo thành công
+            end
+        end
+    end
+    System --> User: Thành công
+    System --> User: Trở về trang hiển thị danh sách lịch sử khám bệnh
+end
+end
+@enduml

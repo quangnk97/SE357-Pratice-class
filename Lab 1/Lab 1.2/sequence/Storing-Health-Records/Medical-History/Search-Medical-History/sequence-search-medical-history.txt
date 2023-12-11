@@ -1,0 +1,19 @@
+﻿@startuml
+actor User
+participant "System" as System
+database Database
+
+User -> System: Người dùng nhập nội dung chuẩn đoán và chọn "Search"
+System -> Database: Thực hiện tìm kiếm lịch sử khám sức khỏe có nội dung chuẩn đoán đó
+Database --> System: Trả về danh sách lịch sử khám sức khỏe của trẻ tìm được
+
+alt Rỗng
+    System --> User: Hiển thị dòng chữ "Không tìm thấy lịch sử khám sức khỏe tương ứng"
+else Không rỗng
+    System --> User: Hiển thị danh sách lịch sử khám sức khỏe sức khỏe
+    User -> System: Người dùng chọn lịch sử khám sức khỏe từ danh sách
+    System -> Database: Thực hiện lấy thông tin lịch sử khám sức khỏe sức khỏe đã chọn
+    Database --> System: Lấy dữ liệu tương ứng
+    System --> User: Hiển thị chi tiết thông tin lịch sử khám sức khỏe sức khỏe
+end
+@enduml

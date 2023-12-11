@@ -1,0 +1,25 @@
+﻿@startuml
+actor User
+participant "System" as System
+database Database
+
+loop Đến khi hết lỗi hoặc người dùng dừng thao tác
+User -> System: Người dùng cập nhật chỉ số sức khỏe và chọn "Lưu"
+
+System --> System: Kiểm tra lỗi dữ liệu
+
+    alt Có lỗi
+        System --> User: Hiển thị thông báo lỗi
+    else Không lỗi
+        System -> Database: Cập nhật chỉ số sức khỏe của trẻ
+        alt Kiểm tra sự ràng buộc dữ liệu?
+            Database --> System: Trả về lỗi khi cập nhật thông tin
+        else Không có lỗi ràng buộc
+            Database --> System: Trả về thông báo thành công
+        end
+    end
+end
+
+System --> User: Hiển thị thông báo thành công
+System --> System: Cập nhật những thay đổi trên trang giao diện hiện tại
+@enduml

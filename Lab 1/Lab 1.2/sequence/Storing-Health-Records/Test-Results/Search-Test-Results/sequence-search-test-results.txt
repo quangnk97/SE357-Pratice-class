@@ -1,0 +1,19 @@
+﻿@startuml
+actor User
+participant "System" as System
+database Database
+
+User -> System: Người dùng nhập tên loại xét nghiệm và chọn "Search"
+System -> Database: Thực hiện tìm kiếm kết quả xét nghiệm có tên loại đó
+Database --> System: Trả về danh sách kết quả xét nghiệm của trẻ tìm được
+
+alt Rỗng
+    System --> User: Hiển thị dòng chữ "Không tìm thấy kết quả xét nghiệm tương ứng"
+else Không rỗng
+    System --> User: Hiển thị danh sách kết quả xét nghiệm
+    User -> System: Người dùng chọn kết quả từ danh sách
+    System -> Database: Thực hiện lấy thông tin kết quả xét nghiệm đã chọn
+    Database --> System: Lấy dữ liệu tương ứng
+    System --> User: Hiển thị chi tiết thông tin kết quả xét nghiệm
+end
+@enduml

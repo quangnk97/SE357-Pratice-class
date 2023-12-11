@@ -1,0 +1,24 @@
+﻿@startuml
+actor User
+participant "System" as System
+database Database
+
+User -> System: Chọn trẻ và nút "Xóa"
+activate System
+System -> System: Hiển thị form xác nhận xóa
+activate System
+User -> System: Chọn "Chắc chắn" hoặc "Hủy"
+
+alt Chắc chắn
+    System -> Database: Thực hiện xóa thông tin cơ bản của trẻ
+    activate Database
+    Database --> System: Xóa thông tin trẻ trong database
+    System --> User: Trả về thông báo xóa thành công
+    System -> User: Hiển thị thông báo xóa thành công
+    deactivate Database
+else Hủy
+    System --> User: Hệ thống đóng form và trở về trang danh sách
+end
+
+deactivate System
+@enduml

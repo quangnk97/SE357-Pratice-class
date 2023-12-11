@@ -1,0 +1,19 @@
+﻿@startuml
+actor User
+participant "System" as System
+database Database
+
+User -> System: Người dùng nhập tên trẻ và chọn "Search"
+System -> Database: Tìm kiếm cuộc tư vấn theo tên trẻ
+Database --> System: Danh sách cuộc tư vấn tìm được
+
+alt Kết quả danh sách rỗng?
+    System --> User: Hiển thị thông báo "Không tìm thấy lần tư vấn tương ứng"
+else
+    System --> User: Hiển thị danh sách các lần tư vấn
+    User -> System: Chọn một cuộc tư vấn từ danh sách
+    System -> Database: Lấy thông tin của cuộc tư vấn đã chọn
+    Database --> System: Dữ liệu tương ứng
+    System --> User: Hiển thị lịch sử cuộc tư vấn, trò chuyện giữa chuyên gia và người dùng
+end
+@enduml
