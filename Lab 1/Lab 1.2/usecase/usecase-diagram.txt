@@ -127,5 +127,7 @@ left to right direction
 (Consulting Agreement) as (UC11)
 :c: -- (UC11)
 (UC1) <.. (UC11) : <<include>>
+:c: -- (UC10)
+:c: -- (UC8)
 
 @enduml
