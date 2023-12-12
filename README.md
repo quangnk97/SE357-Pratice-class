@@ -1,3 +1,4 @@
+![UIT](https://img.shields.io/badge/from-UIT%20VNUHCM-blue?style=for-the-badge&link=https%3A%2F%2Fwww.uit.edu.vn%2F)
 # SE357-Pratice-class
 
 [Developing an application to support pediatric healthcare]
